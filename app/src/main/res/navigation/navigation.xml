@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.udacity.shoestore.screen.login.LoginFragment"
+        android:label="@string/login">
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.udacity.shoestore.screen.welcome.WelcomeFragment"
+        android:label="@string/welcome" />
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.udacity.shoestore.screen.shoelist.ShoeListFragment"
+        android:label="@string/shoe_store_inventory">
+        <action
+            android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.screen.shoedetail.ShoeDetailFragment"
+        android:label="@string/add_shoe_to_store" />
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.udacity.shoestore.screen.instruction.InstructionFragment"
+        android:label="@string/instructions" />
+    <action
+        android:id="@+id/action_global_shoeListFragment"
+        app:destination="@id/shoeListFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_global_instructionFragment"
+        app:destination="@id/instructionFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+</navigation>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screen.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/form_padding_vertical"
+                android:paddingBottom="@dimen/form_padding_vertical"
+                android:paddingStart="@dimen/form_padding_horizontal"
+                android:paddingEnd="@dimen/form_padding_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/emailLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:labelFor="@id/emailEditText"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:text="@string/email" />
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:autofillHints="emailAddress"
+                    android:ems="10"
+                    android:importantForAutofill="yes"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/passwordLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:labelFor="@id/passwordEditText"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:text="@string/password" />
+
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:autofillHints="password"
+                    android:ems="10"
+                    android:importantForAutofill="yes"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/login" />
+
+                <Button
+                    android:id="@+id/registerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/register" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screen.instruction.InstructionViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screen.instruction.InstructionFragment">
+
+        <LinearLayout
+            android:paddingStart="@dimen/form_padding_horizontal"
+            android:paddingEnd="@dimen/form_padding_horizontal"
+            android:paddingBottom="@dimen/form_padding_vertical"
+            android:paddingTop="@dimen/form_padding_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/header"
+                android:text="@string/how_to_use_this_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:text="@string/instructions_text"
+                style="@style/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:id="@+id/openListButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:fontFamily="@font/roboto"
+                android:text="@string/open_shoe_store" />
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

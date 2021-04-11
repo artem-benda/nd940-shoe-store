@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screen.shoedetail.ShoeDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screen.shoedetail.ShoeDetailFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/nameLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:labelFor="@id/nameEditText"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:text="@string/email" />
+
+                <EditText
+                    android:id="@+id/nameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:importantForAutofill="no" />
+
+
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/field_padding_vertical"
+                    android:layout_marginBottom="@dimen/field_padding_vertical"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/save" />
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

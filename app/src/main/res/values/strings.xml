@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="shoe_store_inventory">Shoe Store Inventory</string>
+    <string name="welcome">Welcome!</string>
+    <string name="go">Go</string>
+    <string name="add_shoe_to_store">Add shoe to store</string>
+    <string name="open_shoe_store">Open Shoe Store</string>
+    <string name="how_to_use_this_app">How to use this app?</string>
+    <string name="instructions_text">With this app you can keep a list of shoes.<br /><br />To see the list and to add items you need to be logged in. For educational purposes you are authenticated with any emain and password.<br /><br />To add item to the list press Plus button in the Shoe Store screen, fill the form and save changes.<br /><br />You can navigate to the instructions using menu.</string>
+    <string name="save">Save</string>
+    <string name="instructions">Instructions</string>
+    <string name="error_email_empty">Email cannot be empty</string>
+    <string name="logout">Logout</string>
+</resources>
