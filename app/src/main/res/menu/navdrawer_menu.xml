@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/shoeListFragment"
-        android:title="Shoe Store" />
+        android:id="@+id/action_global_shoeListFragment"
+        android:title="@string/shoe_store" />
     <item
-        android:id="@+id/instructionFragment"
+        android:id="@+id/action_global_instructionFragment"
         android:title="@string/instructions" />
 </menu>

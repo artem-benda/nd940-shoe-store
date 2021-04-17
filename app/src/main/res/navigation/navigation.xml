@@ -10,7 +10,9 @@
         android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -35,16 +37,16 @@
     <action
         android:id="@+id/action_global_shoeListFragment"
         app:destination="@id/shoeListFragment"
-        app:popUpTo="@id/loginFragment"
+        app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
     <action
         android:id="@+id/action_global_instructionFragment"
         app:destination="@id/instructionFragment"
-        app:popUpTo="@id/loginFragment"
+        app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
     <action
         android:id="@+id/action_global_loginFragment"
         app:destination="@id/loginFragment"
-        app:popUpTo="@id/loginFragment"
+        app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
 </navigation>

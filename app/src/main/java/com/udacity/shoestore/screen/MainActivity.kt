@@ -34,19 +34,22 @@ class MainActivity : AppCompatActivity() {
             this,
             Observer { authData ->
                 if (authData.isLoggedIn && currentDestination?.id != R.id.shoeListFragment) {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_global_shoeListFragment)
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.shoeListFragment)
                 } else if (currentDestination?.id != R.id.loginFragment) {
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.action_global_loginFragment)
+                    findNavController(R.id.nav_host_fragment).navigate(R.id.loginFragment)
                 }
             }
         )
 
-        sharedViewModel.errorTextResource.observe(this, Observer {
-            it?.let {
-                Snackbar.make(binding.root, getString(it), Snackbar.LENGTH_LONG).show()
-                sharedViewModel.showErrorComplete()
+        sharedViewModel.errorTextResource.observe(
+            this,
+            Observer {
+                it?.let {
+                    Snackbar.make(binding.root, getString(it), Snackbar.LENGTH_LONG).show()
+                    sharedViewModel.showErrorComplete()
+                }
             }
-        })
+        )
 
         setupNavigation()
     }
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination: NavDestination, _ ->
             currentDestination = destination
-            binding.toolbar.isVisible = isShowToolbarForDestination(destination.id)
+            binding.toolbar.isVisible = shouldShowToolbarForDestination(destination.id)
         }
     }
 
@@ -107,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun isShowToolbarForDestination(destinationId: Int): Boolean {
+    private fun shouldShowToolbarForDestination(destinationId: Int): Boolean {
         return destinationId !in setOf(
             R.id.loginFragment,
             R.id.welcomeFragment

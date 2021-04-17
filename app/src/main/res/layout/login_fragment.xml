@@ -84,6 +84,7 @@
                     android:layout_marginBottom="@dimen/field_padding_vertical"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:fontFamily="@font/roboto"
+                    android:onClick="@{() -> viewModel.onButtonClicked()}"
                     android:text="@string/login" />
 
                 <Button
@@ -94,6 +95,7 @@
                     android:layout_marginBottom="@dimen/field_padding_vertical"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:fontFamily="@font/roboto"
+                    android:onClick="@{() -> viewModel.onButtonClicked()}"
                     android:text="@string/register" />
             </LinearLayout>
 

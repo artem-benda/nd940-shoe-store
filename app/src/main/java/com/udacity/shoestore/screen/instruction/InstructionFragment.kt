@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.udacity.shoestore.R
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.databinding.InstructionFragmentBinding
 
 class InstructionFragment : Fragment() {
 
@@ -15,18 +17,28 @@ class InstructionFragment : Fragment() {
     }
 
     private lateinit var viewModel: InstructionViewModel
+    private lateinit var binding: InstructionFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.instruction_fragment, container, false)
-    }
+        binding = InstructionFragmentBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(InstructionViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.shouldNavigateToList.observe(
+            viewLifecycleOwner,
+            Observer { shouldNavigate ->
+                if (shouldNavigate) {
+                    findNavController().navigate(InstructionFragmentDirections.actionGlobalShoeListFragment())
+                    viewModel.onNavigateToListComplete()
+                }
+            }
+        )
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 }

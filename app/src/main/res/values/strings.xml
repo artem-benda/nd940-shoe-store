@@ -15,4 +15,6 @@
     <string name="instructions">Instructions</string>
     <string name="error_email_empty">Email cannot be empty</string>
     <string name="logout">Logout</string>
+    <string name="shoeName">Shoe name</string>
+    <string name="shoe_store">Shoe Store</string>
 </resources>

@@ -1,12 +1,14 @@
 package com.udacity.shoestore.screen.welcome
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.udacity.shoestore.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
 
@@ -15,18 +17,28 @@ class WelcomeFragment : Fragment() {
     }
 
     private lateinit var viewModel: WelcomeViewModel
+    private lateinit var binding: WelcomeFragmentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.welcome_fragment, container, false)
-    }
+        binding = WelcomeFragmentBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(WelcomeViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        viewModel.shouldNavigateToList.observe(
+            viewLifecycleOwner,
+            Observer { shouldNavigate ->
+                if (shouldNavigate) {
+                    findNavController().navigate(WelcomeFragmentDirections.actionGlobalShoeListFragment())
+                    viewModel.onNavigateToListComplete()
+                }
+            }
+        )
+        binding.viewModel = viewModel
 
+        return binding.root
+    }
 }

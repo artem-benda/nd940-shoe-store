@@ -30,7 +30,7 @@
                     android:labelFor="@id/nameEditText"
                     android:layout_marginTop="@dimen/field_padding_vertical"
                     android:layout_marginBottom="@dimen/field_padding_vertical"
-                    android:text="@string/email" />
+                    android:text="@string/shoeName" />
 
                 <EditText
                     android:id="@+id/nameEditText"
