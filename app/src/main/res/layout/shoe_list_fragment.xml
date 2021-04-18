@@ -22,6 +22,9 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:context=".screen.shoelist.ShoeListFragment">
 
+            <!-- We are using here linear layout because it perfectly fits our needs here
+             and also it's a project requirement.
+             -->
             <LinearLayout
                 android:id="@+id/shoeItemContainer"
                 android:layout_width="match_parent"

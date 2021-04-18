@@ -11,6 +11,10 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -24,6 +28,10 @@
         android:label="@string/shoe_store_inventory">
         <action
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:destination="@id/shoeDetailFragment" />
     </fragment>
     <fragment
@@ -37,16 +45,28 @@
     <action
         android:id="@+id/action_global_shoeListFragment"
         app:destination="@id/shoeListFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
         app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
     <action
         android:id="@+id/action_global_instructionFragment"
         app:destination="@id/instructionFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
         app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
     <action
         android:id="@+id/action_global_loginFragment"
         app:destination="@id/loginFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
         app:popUpTo="@id/navigation"
         app:popUpToInclusive="true" />
 </navigation>

@@ -12,6 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screen.MainActivity" >
+
+        <!-- We are using here linear layout because it perfectly fits our needs here
+             It's a simple layout without need of usage of nested layouts.
+             -->
         <LinearLayout
             android:focusableInTouchMode="true"
             android:layout_width="match_parent"

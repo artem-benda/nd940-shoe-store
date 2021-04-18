@@ -12,6 +12,11 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!-- We are using here constraint layout because we need complex layout.
+             Usage of linear layout is not effective here because it would need
+             nested layouts, which is not effective and more CPU intensive.
+             Also we use baseline constraints, which is not possible in linear layout.
+             -->
         <androidx.cardview.widget.CardView
             android:layout_margin="@dimen/field_padding_vertical"
             android:padding="@dimen/field_padding_vertical"

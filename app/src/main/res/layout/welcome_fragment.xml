@@ -9,6 +9,12 @@
             type="com.udacity.shoestore.screen.welcome.WelcomeViewModel" />
     </data>
 
+    <!--
+        It's fine to use here linear layout, it's more effective,
+        but tho I decided to use here constraint layout, because it's more intuitive
+        for me in layout inspector, i.e. for development purposes. If I used linear layout here,
+        I should use here weight and gravity props.
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
