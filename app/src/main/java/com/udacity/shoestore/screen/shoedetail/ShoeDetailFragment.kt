@@ -5,8 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.udacity.shoestore.R
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
+import com.udacity.shoestore.screen.SharedViewModel
+import com.udacity.shoestore.screen.welcome.WelcomeFragmentDirections
 
 class ShoeDetailFragment : Fragment() {
 
@@ -14,19 +19,31 @@ class ShoeDetailFragment : Fragment() {
         fun newInstance() = ShoeDetailFragment()
     }
 
+    val sharedViewModel: SharedViewModel by activityViewModels()
     private lateinit var viewModel: ShoeDetailViewModel
+    private lateinit var binding: ShoeDetailFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.shoe_detail_fragment, container, false)
-    }
+        binding = ShoeDetailFragmentBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShoeDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+        val factory = ShoeDetailViewModelFactory(sharedViewModel)
+        viewModel = ViewModelProvider(this, factory).get(ShoeDetailViewModel::class.java)
+        viewModel.shouldNavigateToList.observe(
+            viewLifecycleOwner,
+            Observer { shouldNavigate ->
+                if (shouldNavigate) {
+                    findNavController().navigate(WelcomeFragmentDirections.actionGlobalShoeListFragment())
+                    viewModel.onNavigateToListComplete()
+                }
+            }
+        )
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 }

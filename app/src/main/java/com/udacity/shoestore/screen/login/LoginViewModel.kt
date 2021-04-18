@@ -1,19 +1,24 @@
 package com.udacity.shoestore.screen.login
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.udacity.shoestore.R
+import com.udacity.shoestore.screen.SharedViewModel
 
-class LoginViewModel : ViewModel() {
-    private val _shouldNavigateToWelcome = MutableLiveData<Boolean>(false)
-    val shouldNavigateToWelcome: LiveData<Boolean>
-        get() = _shouldNavigateToWelcome
+class LoginViewModel(private val sharedViewModel: SharedViewModel) : ViewModel() {
+    val fieldLogin = MutableLiveData<String>("")
+    val fieldPassword = MutableLiveData<String>("")
 
     fun onButtonClicked() {
-        _shouldNavigateToWelcome.value = true
-    }
-
-    fun onNavigateToWelcomeComplete() {
-        _shouldNavigateToWelcome.value = false
+        val login = fieldLogin.value
+        val password = fieldPassword.value
+        if (
+            !login.isNullOrBlank() &&
+            !password.isNullOrBlank()
+        ) {
+            sharedViewModel.login(login, password)
+        } else {
+            sharedViewModel.showError(R.string.please_fill_all_values)
+        }
     }
 }

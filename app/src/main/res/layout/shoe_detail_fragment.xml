@@ -8,53 +8,123 @@
             type="com.udacity.shoestore.screen.shoedetail.ShoeDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screen.shoedetail.ShoeDetailFragment">
 
-        <ScrollView
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="@dimen/form_padding_vertical"
+            android:paddingBottom="@dimen/form_padding_vertical"
+            android:paddingStart="@dimen/form_padding_horizontal"
+            android:paddingEnd="@dimen/form_padding_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <TextView
+                android:id="@+id/nameLabel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                style="@style/text"
+                android:labelFor="@id/nameEditText"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:text="@string/shoeName" />
 
-                <TextView
-                    android:id="@+id/nameLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
-                    android:labelFor="@id/nameEditText"
-                    android:layout_marginTop="@dimen/field_padding_vertical"
-                    android:layout_marginBottom="@dimen/field_padding_vertical"
-                    android:text="@string/shoeName" />
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/text"
+                android:inputType="text"
+                android:text="@={viewModel.fieldShoeName}"
+                android:importantForAutofill="no" />
 
-                <EditText
-                    android:id="@+id/nameEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/field_padding_vertical"
-                    android:layout_marginBottom="@dimen/field_padding_vertical"
-                    android:fontFamily="@font/roboto"
-                    android:inputType="text"
-                    android:importantForAutofill="no" />
+            <TextView
+                android:id="@+id/companyLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/text"
+                android:labelFor="@id/companyEditText"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:text="@string/company" />
 
+            <EditText
+                android:id="@+id/companyEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/text"
+                android:inputType="text"
+                android:text="@={viewModel.fieldCompany}"
+                android:importantForAutofill="no" />
 
+            <TextView
+                android:id="@+id/sizeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/text"
+                android:labelFor="@id/sizeEditText"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:text="@string/shoe_size" />
 
-                <Button
-                    android:id="@+id/saveButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/field_padding_vertical"
-                    android:layout_marginBottom="@dimen/field_padding_vertical"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/save" />
-            </LinearLayout>
-        </ScrollView>
+            <EditText
+                android:id="@+id/sizeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/text"
+                android:inputType="numberDecimal"
+                android:text="@={viewModel.fieldShoeSize}"
+                android:importantForAutofill="no" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/text"
+                android:labelFor="@id/descriptionEditText"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                android:text="@string/description" />
+
+            <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/text"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.fieldDescription}"
+                android:importantForAutofill="no" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/colredButton"
+                android:onClick="@{() -> viewModel.onSaveButtonClicked()}"
+                android:text="@string/save" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/field_padding_vertical"
+                android:layout_marginBottom="@dimen/field_padding_vertical"
+                style="@style/borderlessButton"
+                android:onClick="@{() -> viewModel.onCancelButtonClicked()}"
+                android:text="@string/cancel" />
+        </LinearLayout>
+    </ScrollView>
 </layout>

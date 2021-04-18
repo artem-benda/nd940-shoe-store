@@ -9,23 +9,18 @@
             type="com.udacity.shoestore.screen.login.LoginViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginEnd="64dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            android:layout_margin="64dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingTop="@dimen/form_padding_vertical"
                 android:paddingBottom="@dimen/form_padding_vertical"
                 android:paddingStart="@dimen/form_padding_horizontal"
@@ -36,7 +31,7 @@
                     android:id="@+id/emailLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    style="@style/text"
                     android:labelFor="@id/emailEditText"
                     android:layout_marginTop="@dimen/field_padding_vertical"
                     android:layout_marginBottom="@dimen/field_padding_vertical"
@@ -51,14 +46,15 @@
                     android:autofillHints="emailAddress"
                     android:ems="10"
                     android:importantForAutofill="yes"
-                    android:fontFamily="@font/roboto"
+                    style="@style/text"
+                    android:text="@={viewModel.fieldLogin}"
                     android:inputType="textEmailAddress" />
 
                 <TextView
                     android:id="@+id/passwordLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
+                    style="@style/text"
                     android:labelFor="@id/passwordEditText"
                     android:layout_marginTop="@dimen/field_padding_vertical"
                     android:layout_marginBottom="@dimen/field_padding_vertical"
@@ -73,7 +69,8 @@
                     android:autofillHints="password"
                     android:ems="10"
                     android:importantForAutofill="yes"
-                    android:fontFamily="@font/roboto"
+                    style="@style/text"
+                    android:text="@={viewModel.fieldPassword}"
                     android:inputType="textPassword" />
 
                 <Button
@@ -82,8 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/field_padding_vertical"
                     android:layout_marginBottom="@dimen/field_padding_vertical"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:fontFamily="@font/roboto"
+                    style="@style/colredButton"
                     android:onClick="@{() -> viewModel.onButtonClicked()}"
                     android:text="@string/login" />
 
@@ -93,12 +89,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/field_padding_vertical"
                     android:layout_marginBottom="@dimen/field_padding_vertical"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:fontFamily="@font/roboto"
+                    style="@style/borderlessButton"
                     android:onClick="@{() -> viewModel.onButtonClicked()}"
                     android:text="@string/register" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -27,4 +27,12 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="colredButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="borderlessButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
 </resources>

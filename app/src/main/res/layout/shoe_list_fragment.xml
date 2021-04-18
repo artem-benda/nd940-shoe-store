@@ -40,6 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_add"
+            android:onClick="@{() -> viewModel.onButtonClicked()}"
             android:contentDescription="@string/add_shoe_to_store"
             android:focusable="true" />
 

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="@string/go"
             android:onClick="@{() -> viewModel.onButtonClicked()}"
-            style="@style/Widget.AppCompat.Button.Colored"
+            style="@style/colredButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/welcomeLabel"
             app:layout_constraintStart_toStartOf="@+id/welcomeLabel"
